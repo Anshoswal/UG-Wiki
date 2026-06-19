@@ -74,7 +74,7 @@
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
-    max-width:1180px;margin:0 auto;padding:0 22px;
+    max-width:1320px;margin:0 auto;padding:0 22px;
     height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px;
   }
   .brand{display:flex;align-items:center;gap:12px;cursor:pointer;}
@@ -115,7 +115,7 @@
   .search-empty{padding:14px 12px;color:var(--muted);font-size:13.5px;}
 
   /* ---------- Layout ---------- */
-  main{max-width:1180px;margin:0 auto;padding:34px 22px 80px;}
+  main{max-width:1320px;margin:0 auto;padding:34px 22px 80px;}
   .page{display:none;animation:fade .25s ease;}
   .page.active{display:block;}
   @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
@@ -128,7 +128,6 @@
   /* ---------- Hero ---------- */
   .hero{
     text-align:center;padding:40px 22px 30px;
-    background:radial-gradient(1100px 320px at 50% -20%,var(--hero-glow) 0%,transparent 70%);
     border-radius:22px;margin-bottom:8px;
   }
   .hero .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
@@ -187,7 +186,9 @@
   .block h3:first-child{margin-top:4px;}
   .block p{margin:10px 0;color:var(--doc-ink);}
   .block ul{margin:10px 0;padding-left:22px;}
-  .block ul li{margin:7px 0;}
+  .block ol{margin:10px 0;padding-left:24px;}
+  .block ul li,.block ol li{margin:7px 0;}
+  .review-list li{font-weight:600;}
   .block .lead{color:var(--doc-ink);}
   .block a{text-decoration:underline;}
   .note{background:var(--note-bg);border:1px solid var(--note-border);border-left:4px solid var(--accent);
@@ -219,7 +220,7 @@
   .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
   .contact-isaa{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
   .contact-lead{display:flex;justify-content:center;margin-bottom:16px;}
-  .contact-lead .card-person{width:100%;max-width:380px;text-align:center;}
+  .contact-lead .card-person{width:100%;max-width:320px;text-align:center;}
   .contact-lead .card-person .meta{align-items:center;}
   .card-person{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);}
   .card-person .name{font-weight:800;font-size:17px;}
@@ -234,7 +235,7 @@
 
   /* Our Team */
   .team-section-title{font-size:20px;font-weight:800;margin:34px 0 16px;letter-spacing:-.2px;}
-  .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
   .team-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;box-shadow:var(--shadow);text-align:center;}
   .team-card .avatar,.team-card .avatar-fallback{width:112px;height:112px;border-radius:50%;margin:0 auto 14px;border:3px solid var(--line);}
   .team-card .avatar{object-fit:cover;object-position:center;display:block;background:var(--accent-soft);}
@@ -251,7 +252,7 @@
   .pagehead p{color:var(--muted);margin:0;max-width:760px;}
 
   footer{border-top:1px solid var(--line);background:var(--surface);}
-  .foot-inner{max-width:1180px;margin:0 auto;padding:26px 22px;color:var(--muted);font-size:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+  .foot-inner{max-width:1320px;margin:0 auto;padding:26px 22px;color:var(--muted);font-size:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
   .foot-brand{display:flex;align-items:center;gap:14px;}
   .foot-brand img{height:40px;width:auto;flex:none;}
   :root[data-theme="dark"] .foot-brand img{background:#fff;border-radius:6px;padding:3px;}
@@ -411,12 +412,11 @@
       <span class="meta">Read more →</span>
     </a>
 
-    <!-- TODO: Reviews currently opens ResoBin. Swap this href to the booklet's review docs link once available. -->
-    <a class="toc-card" href="https://resobin.gymkhana.iitb.ac.in/login" target="_blank" rel="noopener">
+    <a class="toc-card" href="#content" onclick="go('content','reviews',event)">
       <span class="num">8</span>
       <span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>
       <span class="t">Reviews</span>
-      <span class="meta">Open ResoBin ↗</span>
+      <span class="meta">Minor reviews by department</span>
     </a>
 
     <a class="toc-card" href="#content" onclick="go('content','faqs',event)">
@@ -462,8 +462,15 @@
       <a class="sub" data-target="sec-slp" onclick="scrollTo2('sec-slp')">6.1 SLP</a>
       <a class="sub" data-target="sec-btp" onclick="scrollTo2('sec-btp')">6.2 B.Tech. Project</a>
       <a class="sub" data-target="sec-ura" onclick="scrollTo2('sec-ura')">6.3 URA</a>
-      <a data-target="semester-exchange" onclick="scrollTo2('semester-exchange')">7. Semester Exchange</a>
-      <a data-target="faqs" onclick="scrollTo2('faqs')">9. FAQs</a>
+      <a data-target="idddp-intro" onclick="scrollTo2('idddp-intro')">7. Intro to IDDDP</a>
+      <a data-target="semester-exchange" onclick="scrollTo2('semester-exchange')">8. Semester Exchange</a>
+      <a data-target="reviews" onclick="scrollTo2('reviews')">9. Reviews</a>
+      <a class="sub" data-target="sec-minor-reviews" onclick="scrollTo2('sec-minor-reviews')">9.1 Minor Reviews</a>
+      <a class="sub" data-target="sec-honors-reviews" onclick="scrollTo2('sec-honors-reviews')">9.2 Honors Reviews</a>
+      <a class="sub" data-target="sec-unconventional-reviews" onclick="scrollTo2('sec-unconventional-reviews')">9.3 Unconventional Courses</a>
+      <a class="sub" data-target="sec-slp-reviews" onclick="scrollTo2('sec-slp-reviews')">9.4 SLP/RnD Reviews</a>
+      <a class="sub" data-target="sec-language-reviews" onclick="scrollTo2('sec-language-reviews')">9.5 Language Courses</a>
+      <a data-target="faqs" onclick="scrollTo2('faqs')">10. FAQs</a>
     </aside>
 
     <article class="doc">
@@ -658,7 +665,7 @@
 
         <h3 id="sec-nptel">2.11 &nbsp;NPTEL / SWAYAM Courses</h3>
         <p class="kv"><b>Credit Limit:</b> Students can complete up to 2 elective courses (max 12 credits) via <a href="https://nptel.ac.in/" target="_blank" rel="noopener">NPTEL</a>. Extension/ARP students may take up to 24 credits (core and elective) with DUGC recommendation.</p>
-        <p class="kv"><b>Credits &amp; Grading:</b> A 12-week course equals 6 credits, while 8-week courses equal to 3–4 credits. Grades for NPTEL courses are awarded out of 100 and are not included in CPI calculations.</p>
+        <p class="kv"><b>Credits &amp; Grading:</b> A 12-week course equals 6 credits, while 8-week courses equal to 3-4 credits. Grades for NPTEL courses are awarded out of 100 and are not included in CPI calculations.</p>
         <p class="kv"><b>Enrollment Process:</b> Submit an NPTEL Course Mapping Request Form signed by Faculty Advisor and course instructor to the DUGC via the General Secretary (GSec) for approval.</p>
         <p class="kv"><b>Registration &amp; Fee:</b> After approval, register and pay ₹1000 on the <a href="https://swayam.gov.in/about" target="_blank" rel="noopener">SWAYAM</a> portal for the course exam.</p>
         <p class="kv"><b>Completion Formalities:</b> On passing the exam, submit the printed certificate and the signed NPTEL form to DUGC via GSec. It will then be forwarded to the Academic Office for ASC entry under course code O-IITB.</p>
@@ -707,7 +714,7 @@
       <div class="block" id="why-honor">
         <h2><span class="badge">4</span>Why Should One Take Up A Honor</h2>
         <p>Honor courses are either advanced-level courses in your department or are courses designed to give you more exposure to different areas in your department. It is like a specialization in your own discipline..</p>
-        <p>Honors research topics are varied and negotiable – if you are really interested in a topic and want to learn more about it, you’ll be encouraged and supported.</p>
+        <p>Honors research topics are varied and negotiable - if you are really interested in a topic and want to learn more about it, you’ll be encouraged and supported.</p>
         <p>From a potential employer’s perspective, whatever your department, it appears laudable to have demonstrated the ability to achieve a complex and demanding goal and have in-depth knowledge in your department.</p>
         <p>It helps you prepare you for higher studies or to take a job in a particular specialized area so that you can compete with, say, an M.Tech who has specialized in the same area; there are also higher chances that your profile will get noticed by universities for their MS/Ph.D. programs..</p>
       </div>
@@ -719,7 +726,12 @@
         <p>This facility allows students to do additional courses and finally make select courses count towards 'Core CPI' (the CPI of prescribed curriculum credits)</p>
         <p><b>Rules:</b></p>
         <p>Re-tagging will be available to students ONLY TWICE in their entire program duration, the first time before placements (Second Last Semester Starting) and second time post curriculum completion (Last Semester).</p>
-        <div class="note">NOTE: From the year 2017 onwards, the tagging window for DD (Category I) Students will also be the same as the re-tagging window of their B.Tech counterparts (those who are graduating). For them (Category I DD students), a second window for re-tagging will be made available at the time of graduation. This has been done to ensure a fair process of selection for the institute medals. For the rest of the categories’ DD students, the first tagging window will be opened in the Autumn Semester before placements and the second one at the time of their graduation.</div>
+        <div class="note"><b>Note:</b>
+          <ul>
+            <li>For students who convert to the IDDDP/Dual Degree Programme after the 6th semester, eligibility for retagging depends on whether they avail the retagging window available after their 6th semester. If they do not use this opportunity, they will remain eligible to retag after their 8th and 10th semesters. However, if they avail the retagging window after the 6th semester (prior to conversion), they will have only one retagging opportunity remaining, which will be after their 10th semester.</li>
+            <li>For students enrolled in the Dual Degree Programme from the beginning, retagging is available only after their 8th and 10th semesters. They are not eligible to avail the retagging window after their 6th semester.</li>
+          </ul>
+        </div>
         <p><b>Tags of courses:</b></p>
         <ul>
           <li>Core Course - C</li>
@@ -763,7 +775,7 @@
 
         <h3 id="sec-btp">6.2 &nbsp;B.Tech. Project</h3>
         <p>B.Tech. projects (BTPs) may be offered as a single unit of 12 credits (BTP) or as 6 credits of BTP-I followed by BTP-II of 6 credits or 12 credits.</p>
-        <p>Wherever it is split into two units, BTP - I becomes a pre- requisite for BTP – II.</p>
+        <p>Wherever it is split into two units, BTP - I becomes a pre-requisite for BTP - II.</p>
         <p>Departments may prescribe a minimum performance in BTP - I (which may be higher than the pass grade ‘DD’) for being eligible for BTP - II.</p>
         <p>BTP - I and BTP - II are separately graded, at the end of the respective semesters.</p>
         <p>These projects are supervised, and need regular interaction (at least once a week) with the supervisor.</p>
@@ -802,9 +814,16 @@
         </ul>
       </div>
 
-      <!-- 7. SEMESTER EXCHANGE -->
+      <!-- 7. IDDDP -->
+      <div class="block" id="idddp-intro">
+        <h2><span class="badge">7</span>Intro to IDDDP</h2>
+        <p>The Interdisciplinary Dual Degree Program (IDDDP) is an academic initiative that allows undergraduate students to pursue an additional master's degree in a specialized interdisciplinary area by extending their studies by one year. This program enables students to combine their core undergraduate discipline with advanced knowledge in an emerging or allied field.</p>
+        <p>For the full guide, including who it suits, its benefits and the IDDDP Booklet, head to <a href="#idddp" onclick="go('idddp',event)">The IDDDP Corner</a>.</p>
+      </div>
+
+      <!-- 8. SEMESTER EXCHANGE -->
       <div class="block" id="semester-exchange">
-        <h2><span class="badge">7</span>Intro to Semester Exchange</h2>
+        <h2><span class="badge">8</span>Intro to Semester Exchange</h2>
         <p>The Semester Exchange Program at IIT Bombay is a chance to study abroad for one semester at one of IIT Bombay’s partner universities. IIT Bombay signs Memoranda of Understanding (MoUs) with various institutions worldwide, many of which facilitate academic exchanges. MoUs lay the groundwork for how these will work - student eligibility, departments/schools and so on.</p>
         <p>Spending a semester abroad has several advantages:</p>
         <ul>
@@ -822,9 +841,69 @@
         <p>For more info about the Semester Exchange Program (Eligibility, timeline, list of universities etc.) please visit the official <a href="https://www.ir.iitb.ac.in/" target="_blank" rel="noopener">IITB International Relations Website</a>.</p>
       </div>
 
-      <!-- 9. FAQs -->
+      <!-- 9. REVIEWS -->
+      <div class="block" id="reviews">
+        <h2><span class="badge">9</span>Reviews</h2>
+        <p>Reviews are written by students to help you decide which minors and courses to take. The reviews are individual opinions of the respective students and are shared only as a basis for your decision. Click a department below to open its minor reviews.</p>
+
+        <h3 id="sec-minor-reviews">Minor Reviews</h3>
+        <ol class="review-list">
+          <li><a href="https://drive.google.com/drive/folders/1U6TsnsOVuwMtWX84unCakCy71DLiQHfP" target="_blank" rel="noopener">Aerospace Engineering</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1N-RONCYKyVFVW9VNvJaKKOccFuU84JaA" target="_blank" rel="noopener">Biosciences &amp; Bioengineering</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1a1hpQmT3Je_pE7oSPb4T8wRyBa7_fyZF" target="_blank" rel="noopener">Centre for Digital Health (KCDH)</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1EFRJwZgmbJMH5uEyu_MpMs05hM2pPZVJ" target="_blank" rel="noopener">Centre for Machine Intelligence and Data Science (C-MInDS)</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1fig61iBtmtMbyNBDmaTDVDR9m8jvD5HN" target="_blank" rel="noopener">Chemistry</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1YtqksB98kUTOc5WbTituJHaYXf_P05m6" target="_blank" rel="noopener">Computer Science and Engineering</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1Y8oRzSGM8f5z1gsOVqLh-yHmGRwGPgL3" target="_blank" rel="noopener">Economics</a></li>
+          <li><a href="https://drive.google.com/drive/folders/19Cf2QG7PDNbrkX8CuidJ9xVsAevbJK4j" target="_blank" rel="noopener">Electrical Engineering</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1qiefyZaEA2V7j4GVTnAXFn6Sxi1OpGl_" target="_blank" rel="noopener">Energy Science and Engineering</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1MsxosmA_8sL26V3aBOEI2Zqk2RoxEDbe" target="_blank" rel="noopener">Engineering Physics</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1nOrMjJooxseQSAjYM9JiJum8SPWQuGbf" target="_blank" rel="noopener">Entrepreneurship</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1gapjsERcwPgZuIckzMX_7v2bowb0YbQr" target="_blank" rel="noopener">Industrial Design (IDC)</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1w9VLIcdtN2ixNkSRtXR-uJAI4oqPKYU8" target="_blank" rel="noopener">Mathematics</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1xCHm1e4hrWiKtE9LihqpfZ9aGWBnw7hh" target="_blank" rel="noopener">Management</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1FMZdA_DnQCrwarTRyfuAIeWRK0fxauz9" target="_blank" rel="noopener">Robotics</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1FkwXfJb-527qVj6N5o7ERkTATU9P8grK" target="_blank" rel="noopener">Statistics</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1YAbJFww1lU3ZRuERRtJGTWeQfScm9515" target="_blank" rel="noopener">Systems and Control Engineering</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1DF2pUVCcurRUzm5ZZv-Klm156Vok3R6n" target="_blank" rel="noopener">MEMS</a></li>
+        </ol>
+
+        <h3 id="sec-honors-reviews">Honors Reviews</h3>
+        <p><a href="https://drive.google.com/drive/folders/1pImpInJn19ecC-MSVhM9YsOg_p5T6l1W" target="_blank" rel="noopener">Open the Honors Reviews folder ↗</a></p>
+
+        <h3 id="sec-unconventional-reviews">Unconventional Course Reviews</h3>
+        <ol class="review-list">
+          <li><a href="https://drive.google.com/file/d/1SNJUqOstvJr-TBbi9xa9aRYgfq3SZ_N4/view" target="_blank" rel="noopener">BB405 - Molecular Biology</a></li>
+          <li><a href="https://drive.google.com/file/d/1v4n087pT6jbX5WOqCvXvBWGyFe9Mqvhl/view" target="_blank" rel="noopener">CH442 - Molecular Spectroscopy</a></li>
+          <li><a href="https://drive.google.com/file/d/1Iy_21clFqqIs7RxqBpYulr-CX6Eb3MFz/view" target="_blank" rel="noopener">CH806 - Molecular Photochemistry</a></li>
+          <li><a href="https://drive.google.com/file/d/1YGLoMWgEQTtnQ-VNzH1nFwi5byJzgXPB/view" target="_blank" rel="noopener">CH818 - Single Molecule Fluorescence Spectroscopy</a></li>
+          <li><a href="https://drive.google.com/file/d/1RpOE-hjxqnnV1UjixwC1hLHSyW_BY2Dm/view" target="_blank" rel="noopener">BB400 - Molecular Biophysics</a></li>
+          <li><a href="https://drive.google.com/file/d/1AQbqrE2Xws90r2ANpLKSwjnikmb8lm3T/view" target="_blank" rel="noopener">MM6002 - Principles and Applications of Piezoelectric and Ferroelectric Materials</a></li>
+          <li><a href="https://drive.google.com/file/d/1afwmKy3k10iwTuQ8Lzse7HCVbJcf3KYa/view" target="_blank" rel="noopener">CL726 - Introduction to Genomics</a></li>
+          <li><a href="https://drive.google.com/file/d/1BDSWL1LjMr7ez0WtftbVldNWnL3ZN-XR/view" target="_blank" rel="noopener">DH803 - Wearable Health Technologies</a></li>
+          <li><a href="https://drive.google.com/file/d/1uUnCv2IQm_SM8vRJuMq9AaFpSEFcKupl/view" target="_blank" rel="noopener">GNR649 - Planetary Sciences: Earth and Beyond</a></li>
+          <li><a href="https://drive.google.com/file/d/1_q7jc3kYGfEOFQqOeshCH1gytnzSxhRe/view" target="_blank" rel="noopener">HS618 - Introduction to Indian Astronomy</a></li>
+          <li><a href="https://drive.google.com/file/d/19DM43OMz1xBlUQJnJpKTX463fyXX4bGC/view" target="_blank" rel="noopener">CM801 - Introduction to Risk Analysis</a></li>
+          <li><a href="https://drive.google.com/file/d/1zFSH9TonxZUPzPCQDqBDDdXAWjCdukwv/view" target="_blank" rel="noopener">CS406 - Modern Cryptography</a></li>
+          <li><a href="https://drive.google.com/file/d/1MjRY7mDbTEzuhCrKpj0dM6nunBmRaVRB/view" target="_blank" rel="noopener">GNR607 - Principles of Satellite Image Processing</a></li>
+          <li><a href="https://drive.google.com/file/d/1kV_roHqfmuS6S1FbfZiJ0OfOxFnJ5nIK/view" target="_blank" rel="noopener">IE616 - Decision Analysis and Game Theory</a></li>
+        </ol>
+
+        <h3 id="sec-slp-reviews">SLP/RnD Reviews</h3>
+        <p><a href="https://drive.google.com/drive/folders/18BbZt3jGud2yq9uiiq9uWaQsk9Zd1vCM" target="_blank" rel="noopener">Open the SLP/RnD Reviews folder ↗</a></p>
+
+        <h3 id="sec-language-reviews">Language Courses Review</h3>
+        <ol class="review-list">
+          <li><a href="https://drive.google.com/drive/folders/1FzWE5_LKgQJX5LUq6ETBAj2ZIHxsYL05" target="_blank" rel="noopener">French</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1d5oNnnV-802m-e7euVz8mpl3AkUY0V0s" target="_blank" rel="noopener">German</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1f6xEFF8kexC6QfKlqFhvnRXBow5cFxax" target="_blank" rel="noopener">Japanese</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1Y1GB9-dlWBXmP3LZ4EKRsNydchHqxGrO" target="_blank" rel="noopener">Chinese</a></li>
+        </ol>
+      </div>
+
+      <!-- 10. FAQs -->
       <div class="block" id="faqs">
-        <h2><span class="badge">9</span>FAQs</h2>
+        <h2><span class="badge">10</span>FAQs</h2>
 
         <details class="faq"><summary>If I get an FR Grade in a minor course, do I need to repeat the course? And will it reflect in my final transcript?</summary>
         <p>No, you do not need to repeat the course. However, an 'FR' grade will reflect on the course, under the additional courses done.</p></details>
@@ -906,7 +985,7 @@
       <img class="avatar" src="assets/team/siddhant.jpg" alt="Siddhant Sumit Gupta" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
       <div class="avatar-fallback" style="display:none">SG</div>
       <div class="name">Siddhant Sumit Gupta</div>
-      <div class="role">General Secretary, Academic Affairs UG (GSAA)</div>
+      <div class="role">General Secretary, Academic Affairs UG</div>
       <div class="meta"><span>Email: <a href="mailto:gsecaaug@iitb.ac.in">gsecaaug@iitb.ac.in</a></span></div>
     </div>
   </div>
